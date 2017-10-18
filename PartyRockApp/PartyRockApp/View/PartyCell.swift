@@ -18,7 +18,7 @@ class PartyCell: UITableViewCell {
         super.awakeFromNib()
     }
     
-    func updateUI(partyRock: PartyRock){
+    func configure(with partyRock: PartyRock){
         videoTitle.text = partyRock.videoTitle
         let url = URL(string: partyRock.imageURL)!
         DispatchQueue.global().async {
@@ -32,4 +32,21 @@ class PartyCell: UITableViewCell {
         }
     }
     
+//    func configure(with partyRock: PartyRock){
+//        videoTitle.text = partyRock.videoTitle
+//        let url = URL(string: partyRock.imageURL)!
+//        let urlSession:URLSession = URLSession.shared
+//        let task = urlSession.dataTask(with: url, completionHandler: {(data,response,error) in
+//            if let responseData = data {
+//                self.videoPreviewImage.image = UIImage(data: responseData)
+//            }
+//            if let response = response {
+//                print(response)
+//            }
+//            if let error = error {
+//                print(error)
+//            }
+//        })
+//        task.resume()
+//    }
 }

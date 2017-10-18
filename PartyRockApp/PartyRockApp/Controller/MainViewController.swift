@@ -44,7 +44,7 @@ extension MainViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "PartyCell", for: indexPath) as? PartyCell {
             let partyRock = partyRocks[indexPath.row]
-            cell.updateUI(partyRock: partyRock)
+            cell.configure(with: partyRock)
             return cell
         }
         return UITableViewCell()
