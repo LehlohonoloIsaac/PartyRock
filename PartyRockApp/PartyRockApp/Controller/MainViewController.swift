@@ -12,28 +12,30 @@ class MainViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
-    let url = "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/Bg_Q7KYWG1g\" frameborder=\"0\" allowfullscreen></iframe>"
-    let imageURL = "https://visualhunt.com/photos/l/8/camera-journal-travel.jpg"
+    let videoUrl = "https://www.youtube.com/embed/Bg_Q7KYWG1g"
     
     var partyRocks = [PartyRock]()
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let p1 = PartyRock(imageURL: imageURL, videoURL: url, videoTitle: "When the rock fell")
-        let p2 = PartyRock(imageURL: imageURL, videoURL: url, videoTitle: "When the rock fell")
-        let p3 = PartyRock(imageURL: imageURL, videoURL: url, videoTitle: "When the rock fell")
-        let p4 = PartyRock(imageURL: imageURL, videoURL: url, videoTitle: "When the rock fell")
-        let p5 = PartyRock(imageURL: imageURL, videoURL: url, videoTitle: "When the rock fell")
-        
-        partyRocks.append(p1)
-        partyRocks.append(p2)
-        partyRocks.append(p3)
-        partyRocks.append(p4)
-        partyRocks.append(p5)
+
+        (0..<5).forEach({ _ in
+            let imageURL = "https://visualhunt.com/photos/l/8/camera-journal-travel.jpg"
+            let partyRock = PartyRock(imageURL: imageURL, videoURL: videoUrl, videoTitle: "The greatest motivational video")
+            partyRocks.append(partyRock)
+        })
+ 
         tableView.delegate = self
         tableView.dataSource = self
     }
     
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destinationViewController = segue.destination as? VideoViewController {
+            if let partyRock = sender as? PartyRock {
+                destinationViewController.partyRock = partyRock
+            }
+        }
+    }
 }
 
 extension MainViewController: UITableViewDataSource{
@@ -56,4 +58,8 @@ extension MainViewController: UITableViewDelegate{
         return CGFloat(100)
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let partyRock = partyRocks[indexPath.row]
+        performSegue(withIdentifier: "VideoVC", sender: partyRock)
+    }
 }

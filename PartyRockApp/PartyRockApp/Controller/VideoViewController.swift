@@ -7,29 +7,26 @@
 //
 
 import UIKit
+import WebKit
 
 class VideoViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    @IBOutlet weak var webView: WKWebView!
+    @IBOutlet weak var videoTitle: UILabel!
+    
+    private var _partyRock: PartyRock!
+    
+    var partyRock:PartyRock!{
+        get{ return _partyRock }
+        set{ _partyRock = newValue }
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        videoTitle.text = partyRock.videoTitle
+        let url = URL(string: partyRock.videoURL)!
+        let urlRequest = URLRequest(url: url)
+        webView.load(urlRequest)
     }
-    */
 
 }
