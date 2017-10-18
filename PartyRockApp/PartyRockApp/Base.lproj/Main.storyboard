@@ -4,7 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -136,7 +136,7 @@
                     <navigationItem key="navigationItem" id="Oel-Xn-Wtx"/>
                     <connections>
                         <outlet property="tableView" destination="Sip-TB-cgd" id="RIh-bm-mSa"/>
-                        <segue destination="Nsk-1X-voY" kind="showDetail" identifier="VideoVC" id="vCA-7z-CJ8"/>
+                        <segue destination="Nsk-1X-voY" kind="push" identifier="VideoVC" id="vCA-7z-CJ8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -152,25 +152,40 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vKS-YG-8Jw">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="167"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="531"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="167" id="WPL-cP-NaS"/>
-                                </constraints>
                                 <wkWebViewConfiguration key="configuration">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
                                     <wkPreferences key="preferences"/>
                                 </wkWebViewConfiguration>
                             </wkWebView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sK4-JA-CCV">
+                                <rect key="frame" x="0.0" y="611" width="375" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="gJI-r9-jjn"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.84930203045685282" green="0.84930203045685282" blue="0.84930203045685282" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="vKS-YG-8Jw" firstAttribute="top" secondItem="fYT-Ve-Rqu" secondAttribute="top" id="0HV-6T-pmH"/>
+                            <constraint firstItem="sK4-JA-CCV" firstAttribute="top" secondItem="vKS-YG-8Jw" secondAttribute="bottom" constant="16" id="3nd-ac-mK3"/>
+                            <constraint firstItem="vKS-YG-8Jw" firstAttribute="top" secondItem="gtX-y6-LqQ" secondAttribute="top" id="Ckk-nt-wpO"/>
+                            <constraint firstItem="gtX-y6-LqQ" firstAttribute="bottom" secondItem="sK4-JA-CCV" secondAttribute="bottom" constant="16" id="ZrV-bK-aqu"/>
+                            <constraint firstItem="gtX-y6-LqQ" firstAttribute="trailing" secondItem="sK4-JA-CCV" secondAttribute="trailing" id="bBJ-Cn-nYc"/>
                             <constraint firstItem="vKS-YG-8Jw" firstAttribute="trailing" secondItem="gtX-y6-LqQ" secondAttribute="trailing" id="iR7-P3-PE3"/>
+                            <constraint firstItem="sK4-JA-CCV" firstAttribute="leading" secondItem="gtX-y6-LqQ" secondAttribute="leading" id="mJM-f3-GAD"/>
                             <constraint firstItem="vKS-YG-8Jw" firstAttribute="leading" secondItem="gtX-y6-LqQ" secondAttribute="leading" id="yhr-Sg-5XV"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="gtX-y6-LqQ"/>
                     </view>
+                    <navigationItem key="navigationItem" id="XdE-Cc-raP"/>
+                    <connections>
+                        <outlet property="videoTitle" destination="sK4-JA-CCV" id="2kP-u4-Gr5"/>
+                        <outlet property="webView" destination="vKS-YG-8Jw" id="SZB-vz-LI1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4pU-rs-TeV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
