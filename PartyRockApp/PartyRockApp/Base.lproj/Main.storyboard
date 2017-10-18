@@ -82,7 +82,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="partybanner" translatesAutoresizingMaskIntoConstraints="NO" id="jbE-qQ-mSB">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="partybanner" translatesAutoresizingMaskIntoConstraints="NO" id="jbE-qQ-mSB" customClass="RoundedImageView" customModule="PartyRockApp" customModuleProvider="target">
                                                     <rect key="frame" x="8" y="-18.5" width="80" height="80.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="OqF-aq-Cpd"/>
